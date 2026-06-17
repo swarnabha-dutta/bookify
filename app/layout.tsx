@@ -6,7 +6,6 @@ import {  IBM_Plex_Serif, Mona_Sans } from "next/font/google";
 
 
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 
 const ibmPlexSerif = IBM_Plex_Serif({
