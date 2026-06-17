@@ -1,4 +1,8 @@
+<div align="center">
+
 # Bookify
+
+</div>
 
 > An AI-first reading platform in active development, built to turn books into interactive voice and chat experiences.
 
@@ -9,7 +13,11 @@
 ![PDF Upload](https://img.shields.io/badge/pdf_upload-live-16a34a?style=for-the-badge)
 ![AI](https://img.shields.io/badge/ai-scaffolded-f59e0b?style=for-the-badge)
 
+<div align="center">
+
 ## Tech Stack
+
+</div>
 
 ![Next.js](https://img.shields.io/badge/Next.js_16-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React_19-20232a?style=for-the-badge&logo=react)
@@ -23,13 +31,21 @@
 ![Vercel Blob](https://img.shields.io/badge/Vercel_Blob-ready-black?style=for-the-badge&logo=vercel)
 ![PDF.js](https://img.shields.io/badge/PDF.js-included-d32f2f?style=for-the-badge)
 
+<div align="center">
+
 ## Overview
+
+</div>
 
 Bookify is a modern web application designed to make reading more interactive. The long-term product direction is clear in the codebase: upload books, process content with AI, and enable voice-driven conversations around what users read.
 
 As of now, the project has a polished front-end foundation, a working authentication flow, protected routing, reusable UI building blocks, and early AI-related configuration already in place.
 
+<div align="center">
+
 ## Current Build Status
+
+</div>
 
 ### Implemented
 
@@ -44,21 +60,30 @@ As of now, the project has a polished front-end foundation, a working authentica
 - **PDF book upload experience** with form validation
 - **PDF file processing and validation** with size limits
 - **Upload form component** for seamless book ingestion
+- **Advanced FileUploader component** with drag-and-drop support
+- **Voice selector component** for book persona selection
+- **Zod validation schemas** for secure book creation
+- **Server-side book actions** for database operations
+- **Subscription management** with constants and utilities
 
 ### In Progress Or Prepared
 
-- Book upload experience
 - Book details route for individual titles
 - Subscription and pricing flow
 - AI book conversation workflow
 - PDF parsing and voice interaction pipeline
 - Persistence layer usage with MongoDB and Mongoose
+- Book creation session management
 
 ### Important Note
 
 Some UI links already point to future routes such as `/books/new`, `/books/[slug]`, and `/subscriptions`, but those pages are not implemented yet. The README intentionally reflects the codebase as it exists today.
 
+<div align="center">
+
 ## Feature Delivery Snapshot
+
+</div>
 
 | Area | Status | Notes |
 | --- | --- | --- |
@@ -69,13 +94,21 @@ Some UI links already point to future routes such as `/books/new`, `/books/[slug
 | Reusable components | Complete | Navbar, book cards, and shared UI setup exist |
 | Book upload flow | Complete | `/books/new` route with PDF upload form is live |
 | PDF upload validation | Complete | File type and size validation implemented |
+| File uploader component | Complete | Advanced FileUploader with drag-and-drop |
+| Voice selector | Complete | Persona selection component implemented |
+| Book creation validation | Complete | Zod schemas for form validation |
+| Subscription framework | In Progress | Constants and server utilities ready |
 | Book details page | Planned | Cards link to dynamic routes not yet created |
 | Pricing/subscriptions | Planned | Navigation link exists, page not yet created |
 | AI voice chat | Scaffolded | Constants and dependencies exist, full flow pending |
 | PDF backend storage | In Progress | Ready to integrate with Vercel Blob or cloud storage |
 | Database integration | Ready | Dependencies installed, feature usage not yet visible |
 
+<div align="center">
+
 ## Available Routes
+
+</div>
 
 The following routes currently exist:
 
@@ -86,7 +119,11 @@ The following routes currently exist:
 
 The middleware treats sign-in and sign-up as public routes and protects the rest of the app.
 
+<div align="center">
+
 ## Project Structure
+
+</div>
 
 ```text
 app/
@@ -101,12 +138,18 @@ components/
   Navbar.tsx               Global navigation
   BookCard.tsx             Reusable book card
   UploadForm.tsx           PDF upload form with validation
+  FileUploader.tsx         Advanced file upload with drag-drop
+  VoiceSelector.tsx        Book persona voice selection
   LoadingOverlay.tsx       Loading state indicator
-  ui/                      Shared UI components
+  ui/                      Shared UI components (input, label, radio-group, sonner)
 
 lib/
   constants.ts             Sample books, validation, voice config
   utils.ts                 Shared utility helpers
+  zod.ts                   Zod validation schemas
+  actions/book.action.ts   Server-side book actions
+  subscription-constants.ts Subscription tier definitions
+  subscription.server.ts   Subscription utilities
 
 diagrams/
   Bookify Schema Design.png Data model schema visualization
@@ -115,7 +158,11 @@ public/assets/             Brand and UI assets
 proxy.ts                   Clerk middleware
 ```
 
+<div align="center">
+
 ## Data Model
+
+</div>
 
 The Bookify application uses a MongoDB-based data model designed to support book uploads, segmentation, and voice interaction sessions. Here's the current schema architecture:
 
@@ -154,7 +201,11 @@ The Bookify application uses a MongoDB-based data model designed to support book
 
 This structure enables efficient book storage, AI-powered segment processing, and voice conversation tracking for the platform's core features.
 
+<div align="center">
+
 ## What The Codebase Already Shows
+
+</div>
 
 ### Product Direction
 
@@ -187,7 +238,11 @@ The current codebase already includes:
 
 This is strong groundwork for the upcoming AI and book ingestion features.
 
+<div align="center">
+
 ## Local Development
+
+</div>
 
 ### 1. Install dependencies
 
@@ -205,7 +260,11 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000).
 
+<div align="center">
+
 ## Environment Setup
+
+</div>
 
 Before running the full app experience, configure:
 
@@ -214,7 +273,11 @@ Before running the full app experience, configure:
 
 If you later wire up persistence, storage, and AI flows fully, additional environment variables will likely be needed for database, upload, and AI service credentials.
 
+<div align="center">
+
 ## Scripts
+
+</div>
 
 ```bash
 npm run dev
@@ -223,12 +286,17 @@ npm run start
 npm run lint
 ```
 
+<div align="center">
+
 ## Next Milestones
+
+</div>
 
 - Persist uploaded PDFs to cloud storage (Vercel Blob or S3)
 - Create dynamic book detail pages at `/books/[slug]`
 - Store book metadata in MongoDB
-- Implement subscription and pricing screens
+- Complete subscription and pricing implementation
+- Build book creation session management
 - Connect PDF parsing to AI processing pipeline
 - Launch voice-based conversations for uploaded books
 - Build user dashboard to manage uploaded books
