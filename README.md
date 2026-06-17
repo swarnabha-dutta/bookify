@@ -172,18 +172,6 @@ npm run start
 npm run lint
 ```
 
-## Why This README Is Accurate
-
-This README is based on the code currently present in the repository:
-
-- implemented routes in `app/`
-- auth middleware in `proxy.ts`
-- homepage rendering in `app/page.tsx`
-- reusable UI in `components/`
-- AI and validation constants in `lib/constants.ts`
-
-It documents both what is already working and what is only scaffolded, which makes it suitable for portfolio use, team handoff, and ongoing project development.
-
 ## Next Milestones
 
 - Build `/books/new` for PDF upload
