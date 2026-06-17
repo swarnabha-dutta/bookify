@@ -1,3 +1,5 @@
+import { ClerkProvider } from "@clerk/nextjs";
+
 import type { Metadata } from "next";
 import {  IBM_Plex_Serif, Mona_Sans } from "next/font/google";
 
@@ -22,7 +24,7 @@ const monaSans = Mona_Sans({
 
 
 export const metadata: Metadata = {
-   title: "Bookified",
+   title: "Bookify",
    description: "Transform your books into interactive AI conversations. Upload PDFs, and chat with your books using voice.",
 };
 
@@ -36,8 +38,11 @@ export default function RootLayout({
       lang="en"
     >
       <body className={`${ibmPlexSerif.variable} ${monaSans.variable} relative font-sans antialiased`}>
-        <Navbar/>
-      {children}</body>
+        <ClerkProvider>
+          <Navbar/>
+          {children}
+        </ClerkProvider>
+      </body>
     </html>
   );
 }
