@@ -44,7 +44,7 @@ const UploadForm = () => {
 
     const onSubmit = async (data: BookUploadFormValues) => {
         if(!userId) {
-            return toast.error("Please login to upload books");
+          return toast.error("Please login to upload books");
         }
 
         setIsSubmitting(true);
@@ -197,7 +197,7 @@ const UploadForm = () => {
                         />
 
                         {/* 4. Author Input */}
-                        <FormField
+                        {/* <FormField
                             control={form.control}
                             name="author"
                             render={({ field }) => (
@@ -214,7 +214,7 @@ const UploadForm = () => {
                                     <FormMessage />
                                 </FormItem>
                             )}
-                        />
+                        /> */}
 
                         5. Voice Selector
                         <FormField
