@@ -79,7 +79,7 @@ const UploadForm = () => {
 
             let coverUrl: string;
 
-            if(data.coverImage) {
+            if(data.coverImage && data.coverImage.length) {
                 const coverFile = data.coverImage;
                 const uploadedCoverBlob = await upload(`${fileTitle}_cover.png`, coverFile, {
                     access: 'public',
