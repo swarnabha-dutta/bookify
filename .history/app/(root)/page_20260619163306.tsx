@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroSection from "@/components/HeroSection";
 import BookCard from "@/components/BookCard";
-import {getAllBooks} from "@/lib/actions/book.action";
+import {getAllBooks} from "@/lib/a";
 import Search from "@/components/Search";
 
 const Page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
