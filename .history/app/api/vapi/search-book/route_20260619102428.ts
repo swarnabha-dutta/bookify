@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { searchBookSegments } from '@/lib/actions/book.action';
+import { searchBookSegments } from '@/lib/actions/';
 
 // Helper function to process book search logic
 async function processBookSearch(bookId: unknown, query: unknown) {
@@ -15,7 +15,6 @@ async function processBookSearch(bookId: unknown, query: unknown) {
 
     // Additional validation after conversion
     if (!bookIdStr || bookIdStr === 'null' || bookIdStr === 'undefined' || !queryStr) {
-        
         return { result: 'Missing bookId or query' };
     }
 

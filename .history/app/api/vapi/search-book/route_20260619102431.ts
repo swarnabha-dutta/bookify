@@ -15,7 +15,6 @@ async function processBookSearch(bookId: unknown, query: unknown) {
 
     // Additional validation after conversion
     if (!bookIdStr || bookIdStr === 'null' || bookIdStr === 'undefined' || !queryStr) {
-        
         return { result: 'Missing bookId or query' };
     }
 
