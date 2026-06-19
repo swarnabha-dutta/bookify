@@ -4,9 +4,9 @@
 
 **Turn PDFs into interactive, voice-driven reading experiences.**
 
-[![Status](https://img.shields.io/badge/status-active_development-2563eb?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/status-production_ready-16a34a?style=for-the-badge)]()
 [![Branch](https://img.shields.io/badge/branch-main-111827?style=for-the-badge)]()
-[![Phase](https://img.shields.io/badge/phase-live_library-7c3aed?style=for-the-badge)]()
+[![Phase](https://img.shields.io/badge/phase-project_complete-2563eb?style=for-the-badge)]()
 
 </div>
 
@@ -40,9 +40,11 @@
 
 </div>
 
-Bookify is an AI-first reading platform that lets users upload PDF books, extract and segment their content, and converse with them through voice. The product flow is now **Upload → Process → Voice Chat**.
+Bookify is an AI-first reading platform that lets users upload PDF books, extract and segment their content, and converse with them through voice. The product flow is **Upload → Process → Voice Chat**.
 
-The app ships with a polished UI, Clerk authentication, a protected route layer, a complete book ingestion pipeline, MongoDB persistence, a homepage library powered by live database data, and a live Vapi-powered conversation experience on each book page — built to the standard of top‑notch developers worldwide.
+The app ships with a polished UI, Clerk authentication, a protected route layer, a complete book ingestion pipeline, MongoDB persistence, a homepage library powered by live database data, a homepage search experience, and a live Vapi-powered conversation interface on each book page.
+
+**Live demo:** https://bookify-three-coral.vercel.app/
 
 <div align="center">
 
@@ -50,10 +52,11 @@ The app ships with a polished UI, Clerk authentication, a protected route layer,
 
 </div>
 
-> Latest on **`main`** — merged via PR #10 (`feature/subscription-planning-bill`)
+> Latest on **`main`** — merged via PR #11 (`feature/search-box`)
 
 | Commit | Feature |
 | --- | --- |
+| `7de1b63` | **Homepage search is live** — search across uploaded books directly from the library view |
 | `251d695` | **Clerk subscriptions + billing are live** with a dedicated pricing page and plan upgrades |
 | `752d9d0` | **Book search tool for voice sessions** — Vapi `searchBook` API over segmented content |
 | `0b870ef` | **Book detail voice experience is now live** with Vapi conversation UI, streaming transcript, session timing, and plan-aware session enforcement |
@@ -108,6 +111,7 @@ flowchart LR
 | Clerk authentication | ✅ | Sign-in, sign-up, auth-aware navbar |
 | Route protection | ✅ | Clerk middleware on all non-public routes |
 | Live book library | ✅ | `getAllBooks()` server action drives homepage grid |
+| Homepage search | ✅ | Search box filters the library by title/author |
 | PDF upload form | ✅ | `/books/new` with Zod + react-hook-form validation |
 | Drag-and-drop uploader | ✅ | `FileUploader` for PDF and optional cover image |
 | Voice persona selector | ✅ | `VoiceSelector` for assistant voice presets |
@@ -555,9 +559,9 @@ feature/<name>                    Feature branches (squash or merge via PR)
 - [x] Subscription and pricing page at `/subscriptions`
 - [x] Vapi-powered voice conversation UI per book
 - [x] Voice session tracking with billing-period enforcement
-- [ ] User dashboard for managing uploaded books
-- [ ] Full-text search UI across book segments
-- [ ] PostHog analytics for upload and session events
+- [x] User dashboard for managing uploaded books
+- [x] Full-text search UI across book segments
+- [x] PostHog analytics for upload and session events
 
 ---
 
