@@ -18,7 +18,7 @@
 [![Database](https://img.shields.io/badge/MongoDB-live-47a248?style=for-the-badge&logo=mongodb&logoColor=white)]()
 [![Storage](https://img.shields.io/badge/Vercel_Blob-live-black?style=for-the-badge&logo=vercel)]()
 [![PDF Pipeline](https://img.shields.io/badge/PDF_parse_&_segment-live-16a34a?style=for-the-badge)]()
-[![AI Voice](https://img.shields.io/badge/AI_voice-scaffolded-f59e0b?style=for-the-badge)]()
+[![AI Voice](https://img.shields.io/badge/AI_voice-live_conversation-16a34a?style=for-the-badge)]()
 
 ### Stack
 
@@ -40,9 +40,9 @@
 
 </div>
 
-Bookify is an AI-first reading platform that lets users upload PDF books, extract and segment their content, and (coming soon) converse with them through voice. The product vision is a three-step flow: **Upload → Process → Voice Chat**.
+Bookify is an AI-first reading platform that lets users upload PDF books, extract and segment their content, and converse with them through voice. The product flow is now **Upload → Process → Voice Chat**.
 
-The app ships with a polished UI, Clerk authentication, a protected route layer, a complete book ingestion pipeline, MongoDB persistence, and a homepage library powered by live database data.
+The app ships with a polished UI, Clerk authentication, a protected route layer, a complete book ingestion pipeline, MongoDB persistence, a homepage library powered by live database data, and a live Vapi-powered conversation experience on each book page.
 
 <div align="center">
 
@@ -50,10 +50,11 @@ The app ships with a polished UI, Clerk authentication, a protected route layer,
 
 </div>
 
-> Latest on **`main`** — merged via PR #7 (`feature/fetch-books-from-db`)
+> Latest on **`main`** — merged via PR #8 (`feature/voice-hooks-and-conversation-ui`)
 
 | Commit | Feature |
 | --- | --- |
+| `0b870ef` | **Book detail voice experience is now live** with Vapi conversation UI, streaming transcript, session timing, and plan-aware session enforcement |
 | `be07bba` | Homepage library now renders **live books from MongoDB** instead of static sample data |
 | `67ceacd` | **Vercel Blob** client upload API with authenticated, size-limited file handling |
 | `90f0361` | Upload handler wiring for PDF and cover image ingestion |
@@ -89,8 +90,8 @@ flowchart LR
 | MongoDB persistence | ✅ Live |
 | Homepage library from database | ✅ Live |
 | Plan-based book limits | ✅ Live |
-| Book detail page (`/books/[slug]`) | 🔜 Planned |
-| AI voice conversation (Vapi) | 🟡 Scaffolded |
+| Book detail page (`/books/[slug]`) | ✅ Live |
+| AI voice conversation (Vapi) | ✅ Live |
 | Subscription / pricing page | 🔜 Planned |
 
 <div align="center">
@@ -113,9 +114,10 @@ flowchart LR
 | MongoDB models | ✅ | Books, segments, and voice session schemas |
 | Server actions | ✅ | CRUD, duplicate check, segment save, text search |
 | Subscription limits | ✅ | Plan-based `maxBooks` enforced on creation |
-| Book detail page | 🔜 | Cards link to `/books/[slug]` — route not yet built |
-| Pricing page | 🔜 | Navbar links to `/subscriptions` — not yet built |
-| Voice chat sessions | 🟡 | Models and Vapi deps ready; UI flow pending |
+| Book detail page | ✅ | Protected `/books/[slug]` route with per-book voice experience |
+| Live voice conversation UI | ✅ | `VapiControls` + `useVapi()` power mic controls, statuses, and streaming transcript |
+| Voice session tracking | ✅ | Sessions start/end in MongoDB with monthly caps and per-session duration enforcement |
+| Pricing page | 🔜 | Redirect target for billing-limit upsell, route not yet built |
 
 <div align="center">
 
@@ -130,8 +132,8 @@ flowchart LR
 | `/sign-up` | Public | Clerk sign-up |
 | `/books/new` | Protected | Full PDF upload and book creation flow |
 | `/api/upload` | Protected | Vercel Blob client upload handler |
-| `/books/[slug]` | — | Referenced in UI, not implemented yet |
-| `/subscriptions` | — | Referenced in UI, not implemented yet |
+| `/books/[slug]` | Protected | Book detail page with live Vapi voice conversation UI |
+| `/subscriptions` | — | Referenced for billing-limit redirects, not implemented yet |
 
 <div align="center">
 
