@@ -17,13 +17,13 @@ export const PLAN_LIMITS: Record<PlanType, PlanLimits> = {
   [PLANS.FREE]: {
     maxBooks: 1,
     maxSessionsPerMonth: 5,
-    maxDurationPerSession: 30,
+    maxDurationPerSession: 15,
     hasSessionHistory: false,
   },
   [PLANS.STANDARD]: {
     maxBooks: 10,
     maxSessionsPerMonth: 100,
-    maxDurationPerSession: 15,
+    maxDurationPerSession: 30,
     hasSessionHistory: true,
   },
   [PLANS.PRO]: {
