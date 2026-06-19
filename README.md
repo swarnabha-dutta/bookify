@@ -42,7 +42,7 @@
 
 Bookify is an AI-first reading platform that lets users upload PDF books, extract and segment their content, and converse with them through voice. The product flow is now **Upload → Process → Voice Chat**.
 
-The app ships with a polished UI, Clerk authentication, a protected route layer, a complete book ingestion pipeline, MongoDB persistence, a homepage library powered by live database data, and a live Vapi-powered conversation experience on each book page.
+The app ships with a polished UI, Clerk authentication, a protected route layer, a complete book ingestion pipeline, MongoDB persistence, a homepage library powered by live database data, and a live Vapi-powered conversation experience on each book page — built to the standard of top‑notch developers worldwide.
 
 <div align="center">
 
@@ -50,10 +50,12 @@ The app ships with a polished UI, Clerk authentication, a protected route layer,
 
 </div>
 
-> Latest on **`main`** — merged via PR #8 (`feature/voice-hooks-and-conversation-ui`)
+> Latest on **`main`** — merged via PR #10 (`feature/subscription-planning-bill`)
 
 | Commit | Feature |
 | --- | --- |
+| `251d695` | **Clerk subscriptions + billing are live** with a dedicated pricing page and plan upgrades |
+| `752d9d0` | **Book search tool for voice sessions** — Vapi `searchBook` API over segmented content |
 | `0b870ef` | **Book detail voice experience is now live** with Vapi conversation UI, streaming transcript, session timing, and plan-aware session enforcement |
 | `be07bba` | Homepage library now renders **live books from MongoDB** instead of static sample data |
 | `67ceacd` | **Vercel Blob** client upload API with authenticated, size-limited file handling |
@@ -92,7 +94,7 @@ flowchart LR
 | Plan-based book limits | ✅ Live |
 | Book detail page (`/books/[slug]`) | ✅ Live |
 | AI voice conversation (Vapi) | ✅ Live |
-| Subscription / pricing page | 🔜 Planned |
+| Subscription / pricing page | ✅ Live |
 
 <div align="center">
 
@@ -117,7 +119,8 @@ flowchart LR
 | Book detail page | ✅ | Protected `/books/[slug]` route with per-book voice experience |
 | Live voice conversation UI | ✅ | `VapiControls` + `useVapi()` power mic controls, statuses, and streaming transcript |
 | Voice session tracking | ✅ | Sessions start/end in MongoDB with monthly caps and per-session duration enforcement |
-| Pricing page | 🔜 | Redirect target for billing-limit upsell, route not yet built |
+| Vapi book search tool | ✅ | `/api/vapi/search-book` exposes `searchBook` over segmented content |
+| Subscription / pricing page | ✅ | Clerk PricingTable with live plan upgrades |
 
 <div align="center">
 
@@ -132,8 +135,9 @@ flowchart LR
 | `/sign-up` | Public | Clerk sign-up |
 | `/books/new` | Protected | Full PDF upload and book creation flow |
 | `/api/upload` | Protected | Vercel Blob client upload handler |
+| `/api/vapi/search-book` | Protected | Vapi tool endpoint for semantic search across book segments |
 | `/books/[slug]` | Protected | Book detail page with live Vapi voice conversation UI |
-| `/subscriptions` | — | Referenced for billing-limit redirects, not implemented yet |
+| `/subscriptions` | Protected | Clerk pricing + subscription management |
 
 <div align="center">
 
@@ -148,7 +152,9 @@ app/
   sign-in/[[...sign-in]]       Clerk sign-in
   sign-up/[[...sign-up]]       Clerk sign-up
   books/new/page.tsx           Protected book upload page
+  subscriptions/page.tsx       Clerk pricing + subscription management
   api/upload/route.ts          Vercel Blob authenticated upload handler
+  api/vapi/search-book/route.ts Vapi tool endpoint for book search
 
 components/
   HeroSection.tsx              Landing hero
@@ -545,10 +551,10 @@ feature/<name>                    Feature branches (squash or merge via PR)
 
 </div>
 
-- [ ] Book detail page at `/books/[slug]` with segment-aware content view
-- [ ] Subscription and pricing page at `/subscriptions`
-- [ ] Vapi-powered voice conversation UI per book
-- [ ] Voice session tracking with billing-period enforcement
+- [x] Book detail page at `/books/[slug]` with segment-aware content view
+- [x] Subscription and pricing page at `/subscriptions`
+- [x] Vapi-powered voice conversation UI per book
+- [x] Voice session tracking with billing-period enforcement
 - [ ] User dashboard for managing uploaded books
 - [ ] Full-text search UI across book segments
 - [ ] PostHog analytics for upload and session events
